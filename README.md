@@ -4,7 +4,7 @@ This lib will tell you what is current market status of your stock.
 
 Holiday is coming soon.
 
-๊## Example
+## Example
 
 ```
 from pygst import get_market_status, MarketStatus
