@@ -1,3 +1,7 @@
-from pygst import get_market_status
+from pygst import get_market_status, MarketStatus
 
-print(get_market_status("AAPL").name)
+status = get_market_status("AAPL")
+if status == MarketStatus.PRE or status == MarketStatus.POST:
+    print("Extended time")
+else:
+    print(f"{status.name.lower()} time")
