@@ -58,11 +58,7 @@ STOCK_BASE = {
     "GLXY": Market.CA_STOCK,
 }
 
-
-def get_market_status(symbol: str) -> MarketStatus:
-    stock = STOCK_BASE.get(symbol)
-    if stock is None:
-        raise Exception(f"{symbol} has not been supported yet")
+def get_market_status_by_market(stock: Market) -> MarketStatus:
     market_detail = MARKETS.get(stock)
     if market_detail is None:
         raise Exception(f"{stock.name} has not been supported yet")
@@ -86,3 +82,10 @@ def get_market_status(symbol: str) -> MarketStatus:
             return MarketStatus.POST
 
     return MarketStatus.CLOSE
+
+def get_market_status(symbol: str) -> MarketStatus:
+    stock = STOCK_BASE.get(symbol)
+    if stock is None:
+        raise Exception(f"{symbol} has not been supported yet")
+
+    return get_market_status_by_market(stock)
