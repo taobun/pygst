@@ -89,4 +89,3 @@ def get_market_status(symbol: str) -> MarketStatus:
         raise Exception(f"{symbol} has not been supported yet")
 
     return get_market_status_by_market(stock)
-    
